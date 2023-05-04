@@ -13,6 +13,7 @@ jobs:
         with:
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKER_PASSWORD}}
+      - run: echo "${{secrets.DOCKERHUB_USERNAME}}"
       - run: docker build . -t vishklearning/nodeapp
       - run: echo "${{secrets.DOCKER_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
       - run: docker push vishklearning/nodeapp
