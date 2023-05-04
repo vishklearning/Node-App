@@ -9,14 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: docker/login-action@v2.1.0
-        with:
-          username: ${{secrets.DOCKERHUB_USERNAME}}
-          password: ${{secrets.DOCKER_PASSWORD}}
-      - run: echo "${{secrets.DOCKERHUB_USERNAME}}"
+      - uses: actions/checkout@v2
       - run: docker build . -t vishklearning/nodeapp
-      - run: echo "${{secrets.DOCKER_PASSWORD}}" | docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
-      - run: docker push vishklearning/nodeapp
+      - run: echo "${{secrets.DOCKERHUB_USERNAME}}"
       
       
       
