@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: docker build . -t vishklearning/nodeapp
       - run: echo "${{secrets.DOCKERHUB_USERNAME}}"
-      - run: docker login -u ${{secrets.DOCKERHUB_USERNAME}} --password-stdin
+      - run: docker login -u "vishklearning@gmail.com" -p "Pramati2010@"
       - run: docker push vishklearning/nodeapp
       
       
